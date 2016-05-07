@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app="App"> <!-- AngularJSのアプリケーションだよーって宣言らしい -->
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+  <script type="text/javascript" src="controller.js"></script>
+</head>
+<body ng-controller="AppController">
+  <input type = "text" ng-model="name"> 
+  <p>動的に値がはいりますよ:{{name}}</p>
+  <input type = "text" ng-model="displayText"> 
+  <input type="button" value="Go" ng-click="display()">
+  <h1>{{text}}</h1>
+  <h2>ループ</h2>
+  <div ng-repeat="comment in comments">
+    <h2>{{comment.name}} : {{comment.text}}</h2>
+  </div>
+  <div ng-controller="mainCtrl">
+    <h2>AppController => mainCtrlへの入れ子</h2>
+    <p>カウント</p><span>{{users.length}}</span>
+    <h3>ループ</h3>
+    <ul>
+      <li ng-repeat="user in users">
+        {{user.name|uppercase}} {{user.score|number:4}}
+      </li>
+    </ul>
+    <h2>フィルター</h2>
+    <p>{{25 * 500 | number}} | number</p>
+    <p>{{25 * 500 | currency:"¥"}} | currency:"¥"</p>
+    <p>{{25 * 500 | number | currency:"¥"}} | フィルターチェーンもできるっぽいが number => currencyをチェーンしても何も表示されない</p>
+    <p>{{today | date:'yyyy-MM-dd'}} </p>
+
+    <h2>ループで使うフィルター</h2>
+    <ul>
+      <li ng-repeat="user in users | orderBy:'-score' | limitTo:3">
+        {{user.name|uppercase}} {{user.score|number:4}}
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
