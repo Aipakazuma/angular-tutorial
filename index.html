@@ -20,9 +20,17 @@
     <h2>AppController => mainCtrlへの入れ子</h2>
     <p>カウント</p><span>{{users.length}}</span>
     <h3>ループ</h3>
+    <style>
+      .even {
+        background: #ccc;
+      }
+      .odd {
+        background: red;
+      }
+    </style>
     <ul>
-      <li ng-repeat="user in users">
-        {{user.name|uppercase}} {{user.score|number:4}}
+      <li ng-repeat="user in users" ng-class-even="'even'" ng-class-odd="'odd'">
+        {{$index + 1}} {{$first}} {{$middle}} {{$last}} {{user.name|uppercase}} {{user.score|number:4}}
       </li>
     </ul>
     <h2>フィルター</h2>
