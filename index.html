@@ -73,6 +73,18 @@
         <input type="url" name="url" ng-model="user.url">
         <span ng-show="myForm.url.$error.url">No valid url!</span>
       </p>
+      <p>18+:
+        <!-- <input type="checkbox" ng-model="user.adult" ng-true-value="adult" ng-false-value="child"> -->
+        <!-- dotinstallとバージョンが違うためこう書く http://qiita.com/cyokodog@github/items/d571f7c9e3d895f07139 -->
+        <input type="checkbox" ng-model="user.adult" ng-true-value="'adult'" ng-false-value="'child'" ng-init="user.adult='adult'">
+      </p> 
+      <p>Phone:
+        <input type="radio" ng-model="user.phone" value="iPhone"> iPhone
+        <input type="radio" ng-model="user.phone" value="Android"> Android
+      </p>
+      <p>
+        <select ng-model="user.color" ng-options="'label:'+color for color in ['red','blue','pink']" ng-init="user.color='red'"></select>
+      </p>
       <p><input type="submit" value="add"></p>
     </form>
     <pre>{{user|json}}</pre>
