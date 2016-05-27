@@ -25,6 +25,10 @@ app.controller('mainCtrl', function($scope) {
     {'name':'okinawa7', 'score':'1001'},
   ];
   $scope.today = new Date();
+
+  $scope.addUser = function() {
+    
+  }
 });
 
 app.controller('userItemCtrl', function ($scope) {

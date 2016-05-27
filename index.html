@@ -54,6 +54,28 @@
         </li>
       </ul>
     </div>
+    <!-- Htmlのバリデーションを解除 -->
+    <form novalidate name="myForm" ng-submit="addUser()">
+      <p>Name:
+        <input type="text" name="name" ng-model="user.name" required ng-minlength="5" ng-maxlength="8">
+        <span ng-show="myForm.name.$error.required">Required!!</span>
+        <span ng-show="myForm.name.$error.minlength">too Short</span>
+        <span ng-show="myForm.name.$error.maxlength">too Long</span>
+      </p>
+      <p>Score:
+        <input type="number" name="score" ng-model="user.score">
+      </p>
+      <p>Email:
+        <input type="email" name="email" ng-model="user.email">
+        <span ng-show="myForm.email.$error.email">No valid email!</span>
+      </p>
+      <p>URL:
+        <input type="url" name="url" ng-model="user.url">
+        <span ng-show="myForm.url.$error.url">No valid url!</span>
+      </p>
+      <p><input type="submit" value="add"></p>
+    </form>
+    <pre>{{user|json}}</pre>
   </div>
 </body>
 </html>
