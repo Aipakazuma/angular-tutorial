@@ -45,6 +45,15 @@
         {{user.name|uppercase}} {{user.score|number:4}}
       </li>
     </ul>
+    <div class="test">
+      <h2>Angular JSの練習 Nest</h2>
+      <ul>
+        <li ng-repeat="user in users" ng-controller="userItemCtrl">
+          {{user.name}} {{user.score}}
+          <button ng-click="increment()">+1</button>
+        </li>
+      </ul>
+    </div>
   </div>
 </body>
 </html>
