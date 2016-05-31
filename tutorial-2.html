@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tutorial 2</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="controller-tutorial-2.js"></script>
+</head>
+
+<body>
+    <h1>Tutorial 2</h1>
+    <div ng-controller="hogeCtrl">
+        <p>name:<input type="text" name="name" ng-model="user.name"></p>
+        <p>email:<input type="text" name="email" ng-model="user.email"></p>
+        <p>file:<input type="file" file-model="user.file"></p>
+        <button ng-click="btnClick()">upload</button>
+        <pre>{{user|json}}</pre>
+        <p ng-bind-html="user.response"></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app="first-directive">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
+  <script>
+    var app = angular.module('first-directive', []);
+    app.directive('firstDirective', function() {
+      return {
+        template: '<span>初めてのDirective</span>'
+      };
+    });
+  </script>
+</head>
+<body>
+  <h1>初めてのディレクティブ</h1>
+  <p first-directive></p>
+</body>
+</html>
